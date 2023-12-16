@@ -1,0 +1,180 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+/* *******************************************/
+/* General reuasable components************************/
+/* *******************************************/
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1.6rem 3.2em;
+  border-radius: 9px;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+.btn-full:link,
+.btn-full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+.btn-full:hover,
+.btn-full:active {
+  background-color: #cf711f;
+}
+
+.btn-outline:link,
+.btn-outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+.btn-outline:hover,
+.btn-outline:active {
+  background-color: #fdf2e9;
+  /* We've got to put a border in this button , if we just use the border, it will be created outside the button, we want inside cuzy otherwise it would make space when we put the mouse over the button, instead we use this blow, with inset which means the border come from inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.margin-right-sml {
+  margin-right: 1.6rem !important;
+}
+/* *******************************************/
+/* HEADER***************************/
+/* *******************************************/
+.header-logo {
+  height: 2.2rem;
+}
+.header {
+  background-color: #fdf2e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4.8rem; /*We use padding cuzy the space will come from inside the element and won't cut the background color, this is for give space in the sides left and right*/
+  height: 9.6rem;
+}
+.main-nav-list {
+  display: flex;
+  gap: 3.2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-link:link,
+.nav-link:visited {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s;
+}
+.nav-link:hover,
+.nav-link:active {
+  color: #cf711f;
+}
+.nav-button:link,
+.nav-button:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+.nav-button:hover,
+.nav-button:active {
+  background-color: #cf711f;
+}
+/* *******************************************/
+/* HERO SECTION*************** */
+/* *******************************************/
+
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0; /*In top and bottom 9.6 rem and left and right zero,we use padding in order to don't prejudicar the backgroud-color, margin could do this moving the background colocr*/
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*We created 2 columns, and bellow, we have 2 elements heading-primary and hero-img, each of them will tak each column, each with 50% of the total screen, because of we created 2 columns each with 1fr, that means each will have the same size. and they will be flexible*/
+  max-width: 130rem; /*Max-width instead of only width, it helps the page becomes responsive */
+  justify-items: center;
+  margin: 0 auto; /*In order to the container named hero  go to the center of the browser*/
+  align-items: center;
+  gap: 9.6rem;
+  padding: 0 3.2rem;
+}
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+.hero-img {
+  width: 100%; /* It's gonna take 50% of the whole container(hero), cuzy it is part of a container which has 2 columns each column with 1 fr */
+}
+.delivered-meals {
+  display: flex;
+  margin-top: 8rem;
+}
+.delivered-imgs {
+  display: flex;
+  align-items: center;
+  /* gap: 1.6rem; */
+}
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  margin-right: -1.6rem; /*In order to gather the photos*/
+  border: 3px solid #fdf2e9;
+}
+.fit {
+  margin-right: 1.6rem !important;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
+
+/* Responsive layouts: max-width is used in order to have a flexive layout, for example, we create a element with max-width:1000px, it will have at maximum 1000px, but, as soon as we decrease the screen, the width reduce, because has the maximum, whereas, it can be reduced 
+
+REM: If we dont define the font-size, 1 REM is always equal : 16px, but inside the html, if we define the font-size equal : 10px or 62.5%, 1 rem will be equal 10px
+
+ Tints and shades generator: A very good tool
+
+ It's always important to put every section inside a container, like above, the coitainer is totally flexible, but doesn't take all width, so, the background colos must come inside the section which has 100% of width, one more hint,tip,trick is give all names according with the name of the section like we did in the html
+
+ link, visited, hover and active, see afterwards
+
+ Trick to border:  if we just use the border, it will be created outside the button, we want inside cuzy otherwise it would make space when we put the mouse over the button
+
+ transition:all 1s or transition : background-color 0.5s or any other thing, the second one here will change only the background-color in 0.5 seconds
+
+ Add margins: If we want to add a margin in a button, watch out doing this in the class of the button, cuzy we may use this button again and this margin will always be there, we can create a helper class, and put there the margin, it's important to pu the code: !important, it asure us that the style will be applied over any other style
+
+ Just search google fonts, the font, choose the bolder and copy inside the link before the stylesheet and paste the style in css as well
+Paddings Instead of margin: If we wanna give space inside a container side by side left and right for example, we use padding instead of margin, cuzy padding the space will be inside the elements of the container, the margin would be outside the container the space and could break the responsive and measures of the website
+
+ nth-child(6)
+*/
