@@ -16,12 +16,29 @@ body {
 /* General reuasable components************************/
 /* *******************************************/
 .heading-primary {
-  font-size: 5.2rem;
-  line-height: 1.05;
   font-weight: 700;
   color: #333;
   letter-spacing: -0.5px;
+}
+.heading-primary,
+.heading-secondary {
+  line-height: 1.05;
+  font-size: 5.2rem;
   margin-bottom: 3.2rem;
+}
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+.subheading {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
 }
 .btn:link,
 .btn:visited {
@@ -57,8 +74,26 @@ body {
 .margin-right-sml {
   margin-right: 1.6rem !important;
 }
+.container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+  gap: 9.6rem;
+}
+.grid--2--cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--3--cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid--4--cols {
+  grid-template-columns: repeat(4, 1fr);
+}
 /* *******************************************/
-/* HEADER***************************/
+/* HEADER*************************************/
 /* *******************************************/
 .header-logo {
   height: 2.2rem;
@@ -156,7 +191,15 @@ body {
   color: #cf711f;
   font-weight: 700;
 }
-
+/* *******************************************/
+/* How it works*************************************/
+/* *******************************************/
+.section-how {
+  padding: 9.6rem 0;
+}
+.step-img {
+  width: 50%;
+}
 /* Responsive layouts: max-width is used in order to have a flexive layout, for example, we create a element with max-width:1000px, it will have at maximum 1000px, but, as soon as we decrease the screen, the width reduce, because has the maximum, whereas, it can be reduced 
 
 REM: If we dont define the font-size, 1 REM is always equal : 16px, but inside the html, if we define the font-size equal : 10px or 62.5%, 1 rem will be equal 10px
