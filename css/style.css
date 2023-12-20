@@ -53,7 +53,7 @@ body {
   font-size: 2rem;
   padding: 1.6rem 3.2em;
   border-radius: 9px;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   font-weight: 600;
 }
 .btn-full:link,
@@ -87,7 +87,19 @@ body {
 }
 .grid {
   display: grid;
-  gap: 9.6rem;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+  /* margin-bottom: 9.6rem; */
+
+}
+/* .grid:last-child{
+  margin-bottom: 0;
+} 
+instead of putting margin in the bottom of grid and removing this for the last child, cuzy if there is more than 1 grid the margin bottom will be necessary, otherwise would be colado one row with the other, but when use only one grid inside a container, there would be too much space because of the padding in each new section, so, we use this:
+*/
+.grid:not(:last-child){
+  margin-bottom: 9.6rem;
+  /* If is not the last child will be applied this margin */
 }
 .grid--2--cols {
   grid-template-columns: repeat(2, 1fr);
@@ -97,6 +109,55 @@ body {
 }
 .grid--4--cols {
   grid-template-columns: repeat(4, 1fr);
+}
+.grid--align-v{
+  align-items: center;
+}
+strong{
+  font-weight: 500;
+}
+.margin-bottom-md{
+  margin-bottom: 4.8rem !important;
+}
+.all-recipes{
+  text-align: center;
+  font-size: 1.8rem;
+}
+.link:link,
+.link:visited{
+  display: inline-block;
+  text-decoration: none;
+  color: #e67e22;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px; /*In order  to afastar the text from de border, we use padding, the padding will come from the text and the border is external*/
+  transition: all 0.3s;
+}
+.link:hover,
+.link:active{
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+.center-text{
+  text-align: center;
+}
+.list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.list-items{
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  list-style: none;
+  
+}
+.list-icon{
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
 }
 /* *******************************************/
 /* HEADER*************************************/
@@ -198,6 +259,30 @@ body {
   font-weight: 700;
 }
 /* *******************************************/
+/* Featured in section *************************************/
+/* *******************************************/
+.section-featured{
+  padding: 4.8rem 0 3.2rem 0;
+}
+.heading-featured-in{
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888;
+}
+.logos{
+  display: flex;
+  justify-content:space-around;
+}
+.logos img{
+  height: 3.2rem;
+  filter: brightness(0);
+  opacity:50%; /* it starts with 100% by default, and doing this, the image becomes ligher*/
+} 
+/* *******************************************/
 /* How it works*************************************/
 /* *******************************************/
 .section-how {
@@ -217,10 +302,253 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+.step-img-box::before,
+  .step-img-box::after{ 
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);/*Using top left an transform to center a element with position*/
+  border-radius: 50%;
+ 
+}
+.step-img-box::before{
+  width: 60%; /*In order to this content before we are creating be flexible, we're using percentage as well instead of fixed measure*/
+  /* padding-bottom: 60%; */
+  background-color: #fdf2e9;
+  /* height: 60%; */
+  padding-bottom: 60%; /*This is the same as setting up the height for 60%, but, somehow, setting the height this doesn't work out. And this is 60% of the 
+  parent's width*/
+  z-index: -2;/*A camada que foi criada vai ficar abaixo de qualquer outra q tiver o z index default*/
+}
+.step-img-box::after{
+  width: 45%;
+  padding-bottom: 45%;
+  z-index: -1;
+  background-color: #fae5d3;
+}
+
 .step-img {
   width: 35%;
 }
+/* *******************************************/
+/* meal section*************************************/
+/* *******************************************/
+.section-meals {
+  padding: 9.6rem 0;
+}
+.meal{
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 1.1rem ;
+  overflow: hidden; /*Overflow everything that is in front of the element meal, which occupies all space of the component meal*/
+  transition: all 0.3s; /*The transition for the bolder or any other effect over the class meal*/
+}
+.meal-tags{
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 4px;
+}
+.meal:hover{
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, o, 0.6) ;
+}
+.meal-content{
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+.tag{
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius:100px ;
+  font-weight: 600;
+}
+.tag--vegetarian{
+  background-color: #51cf66;
+}
+.tag--vegan{
+  background-color: #94d82d;
+}
+.tag--paleo{
+  background-color: #ffd43b;
+}
+.meal-title{
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+.meal-attributes{
+  list-style: none; 
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.meal-attribute{
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.meal-icon{
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #e67e22;
+}
+.meal-img{
+  width: 100%;
+}
+/* **********************************
+    Testimonials
+    *********************************/
+
+.section-testimonials{
+  background-color: #fdf2e9;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+}
+.testimonial-container{
+  padding: 9.6rem;
+
+}
+.testimonials{ /*We are Recreating the grid cuzy the one was created before is not a good fit for the testimonials but for sbigger comonents*/
+  display: grid;
+  grid-template-columns: 1fr 1fr; /*We can think of it as a term of percentage too, the first will have 55% and the second 45, but never use percentage here*/
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+  /* We're creating the grid here manually cuzy the grid default we created there were padding in there, and we don't want this here */
+
+}
+.testimonial-img{
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+.testimonial-text{
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+.testimonial-name{
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+.gallery-item{
+  overflow: hidden;
+  /* We are doing this because when we pass the cursor over the img and it scale, it takes more than the own space of each image and enter in the space of the other img, the image overflow the gallery-item  so, we put in the father overflow:hiden, that means the space that would be taken for the image will be hidden and won't be taken, so, we fix like this. */
+}
+.gallery-item img{
+  display: block; /*Images are inline, when we put a lot of images ofe bellow the other in the html it create a space, in order to solve this, turn the img to block*/
+  width: 100%;/*In order to the img take only 100% of the entire width remaining*/
+  transition: all 0.4s;
+}
+.gallery-item img:hover{
+  transform: scale(1.1);
+
+}
+/* **********************************
+    Pricing
+    *********************************/
+.section-pricing{
+  padding: 9.6rem 0;
+}
+.pricing-plan{
+  border-radius: 1.1rem;
+  width: 75%; /*The width was taking all the space that was set by the grid in the parent container, but, we want the width a bit narrow, smaller, then, we do this.*/
+}
+.pricing-plan--starter{
+  justify-self: end; /*We created another class in order to align this item horizontally to the end in order to get closer to the other element, that's why we created another class, only for this element get the style.*/
+  border: 2px solid #fdf2e9;
+  padding: 4.6rem;
+  /* Pricing-plan is the father of pricing-plan--end and pricing-plan--started. How we wanna put the focus in the pricing-plan--end, we put there a background-color and here only a border, how we've put a border here, it's automatically added a padding, so, here we use the padding only 4.6 but in the other element, pricing-plan--end we use 4.8, cuzy the border here is 2 px, here the padding will have 2 px less. */
+}
+.pricing-plan--end{
+  background-color: #fdf2e9;
+  padding: 4.8rem;
+  position: relative;
+  overflow: hidden;/*In order to cut the element after we created bellow, everything that is inside pricing--end and pass this container is cutted of*/
+}
+.pricing-plan--end::after{
+  content: "Best value ";
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  top: 6%;
+  right: -18%;/*We had some attempts in inspect in order to find these numbers, started with 0 each in order to grab in the top in the right*/
+  background-color: #ffd43b;
+  color: #333;
+  padding: 8px 8rem;
+  transform: rotate(45deg);
+}
+.plan-header{
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.plan-name{
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25;
+  margin-bottom: 3.2rem;
+}
+.plan-price{
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.plan-price span{
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+.plan-text{
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.plan-signup{
+  text-align: center;
+  margin-top: 4.8rem;
+}
+.plan-details{
+  font-size: 1.8rem;
+  text-align: center;
+  line-height: 1.6rem;
+}
+
+.feature-icon{
+  color: #e67e22;
+  height:  3.2rem;
+  width: 3.2rem;
+  margin-bottom: 3.2rem;
+  background-color: #fdf2e9;
+  padding: 1.6rem;
+  border-radius: 50%;
+} 
+.feature-title{
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text{
+  font-size: 1.8;
+  line-height: 1.8;
+}
+
 /* Responsive layouts: max-width is used in order to have a flexive layout, for example, we create a element with max-width:1000px, it will have at maximum 1000px, but, as soon as we decrease the screen, the width reduce, because has the maximum, whereas, it can be reduced 
 
 REM: If we dont define the font-size, 1 REM is always equal : 16px, but inside the html, if we define the font-size equal : 10px or 62.5%, 1 rem will be equal 10px
@@ -240,5 +568,30 @@ REM: If we dont define the font-size, 1 REM is always equal : 16px, but inside t
  Just search google fonts, the font, choose the bolder and copy inside the link before the stylesheet and paste the style in css as well
 Paddings Instead of margin: If we wanna give space inside a container side by side left and right for example, we use padding instead of margin, cuzy padding the space will be inside the elements of the container, the margin would be outside the container the space and could break the responsive and measures of the website
 
+center one element with position: position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+  do not forget to set the father to position relative
+
+
  nth-child(6)
-*/
+
+   filter: brightness(0):Changes the color of the images, turn it darker, ligher..
+   opacity:50%; it starts with 100% by default, and doing this, the image becomes ligher
+
+   box-shadow in order to give shadow
+
+   CurrentColor: the border will receive right the same color of the color of the text. it's good cuzy when we hover it, the currentColor will change as soon as the normal color changes.
+   color: #fff
+   border-bottom: 1px solid currentColor;
+
+   Remove the border and dont' move the entire layout, transparent:   border-bottom: 1px solid transparent;, if we had added a border of 1px, and we want after putting the cursor over the text remove the border, in order to the entire layout dont move, we still use border, but transparent
+
+   mexer um pouco um elemento ao passar o mouse:
+     transform: translateY(-1.2rem); if we use transform: translate(2rem,1rem) the first value passed is the axis x and the second the axis y 
+  we can use too: transform :scale. Always the transition must come in the original element, in order to control how we want that the transition be
+  set only width with square image, the heigh is figured out automatically
+
+  grid-template-columns: 55fr 45fr; /*We can think of it as a term of percentage too, the first will have 55% and the second 45, but never use percentage here*/
+
