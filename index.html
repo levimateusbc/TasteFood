@@ -11,17 +11,20 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/queries.css"
   </head>
   <body>
     <header class="header">
-      <img class="header-logo" src="img/omnifood-logo.png" alt="" />
+      <a href="#">
+        <img class="header-logo" src="img/omnifood-logo.png" alt="" />
+      </a>
       <nav class="header-nav">
         <ul class="main-nav-list">
-          <li><a class="nav-link" href="#">Section 1</a></li>
-          <li><a class="nav-link" href="#">Section 2</a></li>
-          <li><a class="nav-link" href="#">Section 3</a></li>
-          <li><a class="nav-link" href="#">Section 4</a></li>
-          <li><a class="nav-link nav-button" href="#">Section 5</a></li>
+          <li><a class="nav-link" href="">How it works</a></li>
+          <li><a class="nav-link" href="#">Meals </a></li>
+          <li><a class="nav-link" href="#">Testimonials</a></li>
+          <li><a class="nav-link" href="#">Pricing</a></li>
+          <li><a class="nav-link nav-button" href="#">Try for free</a></li>
         </ul>
       </nav>
     </header>
@@ -283,8 +286,9 @@
         
         <div class="gallery ">
           <figure class="gallery-item">
-            <!-- <img src="img/gallery/gallery-1.jpg" alt="Photos of food"> -->
-          </figure>
+            <img src="img/gallery/gallery-1.jpg" alt="Photos of food">
+
+           </figure>
           <figure class="gallery-item">
             <img src="img/gallery/gallery-2.jpg" alt="Photos of food">
           </figure>
@@ -425,12 +429,104 @@
           </div>
         </div>
       </section>
+      <section class="section-cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <h2 class="heading-secondary">Get your fisrt meal for free!</h2>
+              <p class="cta-text">
+                Healthy, tasty and hassle-fre meals are waiting for you. Start eating well today. You can cancel or pause anytime. And the first meal is on us!
+              </p>
+              <form class="cta-form" action="# ">
+                <div>
 
+                  <label for="full-name">Full name</label>
+                  <input type="text" id="full-name" placeholder="Enter your name">
+                </div>
+                <div>
 
-
-
-
+                  <label for="email">Email adress</label>
+                  <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div>
+                  <label for="select-where">
+                    Where did you hear about us?
+                  </label>
+                  <select  id="select-where">
+                    <option value="">Please choose one option</option>
+                    <option value="friends">Friends and family</option>
+                    <option value="youtube">YouTube Video</option>
+                    <option value="podcast">
+                      Podcast
+                    </option>
+                    <option value="ad">Facebook ad</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+                <button class="btn btn--form">Sign up</button>
+              </form>
+            </div>
+            <div class="cta-img-box" role="img" aria-label="Woman enjoying food"></div>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer class="footer">
+        <div class="container grid grid-footer">
+          <div class="logo-col">
+            <a href="#" class="footer-logo">
+              <img class="header-logo" src="img/omnifood-logo.png" class = "footer-link"/>
+            </a>
+            <ul class="social-link">
+              <li><a href="#" class="footer-link">
+                <ion-icon class="social-icon"   name="logo-instagram"></ion-icon>
+              </a></li>
+              <li><a href="#" class="footer-link">
+                <ion-icon class="social-icon"  name="logo-facebook"></ion-icon></a></li>
+              <li><a href="#" class="footer-link">
+                <ion-icon class="social-icon" name="logo-linkedin"></ion-icon></a></li>
+            </ul>
+            <p class="copyright">Copyright &copy;2023 by PalaParadise. All rights reserved</p>
+          </div>
+          <div class="adress-col">
+            <p class="footer-heading">Contact us </p>
+            <address class="contacts">
+              <p class="adress">623 Harrison St., 2nd Floor, San Francisco, CA 85406</p>
+              <p>
+                <a href="tel:99250477" class = "footer-link">99250477</a>
+                <a href="mailto:contactPalaparadise@gmail.com" class = "footer-link">PalaParadise@gmail.com</a>
+              </p>
+            </address>
+          </div>
+          <nav class="nav-col">
+            <p class="footer-heading">Contact us </p>
+            <ul class="footer-nav">
+              <li><a href="#"  class = "footer-link">Create account</a></li>
+              <li><a href="#" class = "footer-link"> Sign in</a></li>
+              <li><a href="#" class = "footer-link">IOS app</a></li>
+              <li><a href="#" class = "footer-link">Android app</a></li>
+
+            </ul>
+          </nav>
+          <nav class="nav-col">
+            <p class="footer-heading"> Company </p>
+            <ul class="footer-nav">
+              <li><a href="#" class = "footer-link">About Palaparadise </a></li>
+              <li><a href="#" class = "footer-link">For busines</a></li>
+              <li><a href="#" class = "footer-link">Cooking partners</a></li>
+              <li><a href="#" class = "footer-link">Carrers</a></li>
+            </ul>
+          </nav>
+          <nav class="nav-col">
+            <p class="footer-heading">Resources</p>
+            <ul class="footer-nav">
+              <li><a href="#" class = "footer-link">Recipe directory</a></li>
+              <li><a href="#" class = "footer-link">Help center</a></li>
+              <li><a href="#" class = "footer-link">Privacy and terms</a></li>
+            </ul>
+          </nav>
+        </div>
+    </footer>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
@@ -444,4 +540,23 @@ alt+ click select multiple places
 
 https://ionic.io/ionicons
 
+role="img" we use for background-img in the css, how we put the image with css, we do this in the css in order to the div doesn't get empty aria-label:To describe the kind of image is in the background-img
+
+Label: Use this with inputs  <label for="full-name">Full name</label>
+<input type="text" id="full-name">. Inside the label, there is the for, if you use the same name as the id in the input, the label will be linked to the input, and as soon as you press the text of the label, the input will be selected as well
+
+Action: inside the form there is a action, it says where the form will be send for
+
+select and option: Select there is a id like in input, and you can use a label for make this link, the select with the option will  open a box of options to the user choose one, the text that will appear is the text that will be the options for the user, usually, the first option we don't put any value, only to ask to answer the select we use this.
+input and select and option doesn't inherit the font-family of the body.
+
+Footer comes outise the main, cuzy we repeat this in other pages, so, inside main is all content that we won't reuse in other pages
+semantic tag: Adress
+
+<a href="tel:99250477">99250477</a>
+  <a href="mailto:Palaparadise@gmail.com">PalaParadise@gmail.com</a>
+This href for tel:99250477 after pressing the text that is inside the tag a, will be redirected for call to the number was passed in tel. The same happen with mailto, passing this, after pressing the text inside the a , will be redicected to send a email to this email that was passed to the malito
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+This make the responsive work in phone and tablet in the real website, without this, the effects os media query doesn't apply
 -->

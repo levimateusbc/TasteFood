@@ -3,6 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+*:focus{
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 5px rgba(230, 125, 34, 0.3);
+}
 html {
   font-size: 62.5%;
 }
@@ -17,7 +23,7 @@ body {
 /* *******************************************/
 .heading-primary,
 .heading-secondary,
-.heading-tertiary  {
+.heading-tertiary {
   font-weight: 700;
   color: #333;
   letter-spacing: -0.5px;
@@ -32,7 +38,7 @@ body {
   line-height: 1.2;
   margin-bottom: 9.6rem;
 }
-.heading-tertiary{
+.heading-tertiary {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 3rem;
@@ -47,7 +53,8 @@ body {
   letter-spacing: 0.75px;
 }
 .btn:link,
-.btn:visited {
+.btn:visited,
+.btn {
   display: inline-block;
   text-decoration: none;
   font-size: 2rem;
@@ -55,6 +62,18 @@ body {
   border-radius: 9px;
   transition: all 0.3s;
   font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.btn--form{
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+.btn--form:hover{
+  background-color: #fff;
+  color: #555;
 }
 .btn-full:link,
 .btn-full:visited {
@@ -90,14 +109,13 @@ body {
   row-gap: 9.6rem;
   column-gap: 6.4rem;
   /* margin-bottom: 9.6rem; */
-
 }
 /* .grid:last-child{
   margin-bottom: 0;
 } 
 instead of putting margin in the bottom of grid and removing this for the last child, cuzy if there is more than 1 grid the margin bottom will be necessary, otherwise would be colado one row with the other, but when use only one grid inside a container, there would be too much space because of the padding in each new section, so, we use this:
 */
-.grid:not(:last-child){
+.grid:not(:last-child) {
   margin-bottom: 9.6rem;
   /* If is not the last child will be applied this margin */
 }
@@ -110,21 +128,24 @@ instead of putting margin in the bottom of grid and removing this for the last c
 .grid--4--cols {
   grid-template-columns: repeat(4, 1fr);
 }
-.grid--align-v{
+.grid--5--cols{
+  grid-template-columns: repeat(5,1fr);
+}
+.grid--align-v {
   align-items: center;
 }
-strong{
+strong {
   font-weight: 500;
 }
-.margin-bottom-md{
+.margin-bottom-md {
   margin-bottom: 4.8rem !important;
 }
-.all-recipes{
+.all-recipes {
   text-align: center;
   font-size: 1.8rem;
 }
 .link:link,
-.link:visited{
+.link:visited {
   display: inline-block;
   text-decoration: none;
   color: #e67e22;
@@ -133,28 +154,27 @@ strong{
   transition: all 0.3s;
 }
 .link:hover,
-.link:active{
+.link:active {
   color: #cf711f;
   border-bottom: 1px solid transparent;
 }
-.center-text{
+.center-text {
   text-align: center;
 }
-.list{
+.list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
 }
-.list-items{
+.list-items {
   font-size: 1.8rem;
   display: flex;
   align-items: center;
   gap: 1.6rem;
   list-style: none;
-  
 }
-.list-icon{
+.list-icon {
   width: 3rem;
   height: 3rem;
   color: #e67e22;
@@ -261,10 +281,10 @@ strong{
 /* *******************************************/
 /* Featured in section *************************************/
 /* *******************************************/
-.section-featured{
+.section-featured {
   padding: 4.8rem 0 3.2rem 0;
 }
-.heading-featured-in{
+.heading-featured-in {
   font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.75px;
@@ -273,58 +293,60 @@ strong{
   margin-bottom: 2.4rem;
   color: #888;
 }
-.logos{
+.logos {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
-.logos img{
+.logos img {
   height: 3.2rem;
   filter: brightness(0);
-  opacity:50%; /* it starts with 100% by default, and doing this, the image becomes ligher*/
-} 
+  opacity: 50%; /* it starts with 100% by default, and doing this, the image becomes ligher*/
+}
 /* *******************************************/
 /* How it works*************************************/
 /* *******************************************/
 .section-how {
   padding: 9.6rem 0;
 }
-.step-number{
+.step-number {
   font-size: 8.6rem;
   font-weight: 600;
   color: #ddd;
   margin-bottom: 1.2rem;
 }
-.step-description{
+.step-description {
   font-size: 1.8rem;
   line-height: 1.8;
 }
-.step-img-box{
+.step-img-box {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 .step-img-box::before,
-  .step-img-box::after{ 
+.step-img-box::after {
   content: "";
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);/*Using top left an transform to center a element with position*/
+  transform: translate(
+    -50%,
+    -50%
+  ); /*Using top left an transform to center a element with position*/
   border-radius: 50%;
- 
 }
-.step-img-box::before{
+.step-img-box::before {
   width: 60%; /*In order to this content before we are creating be flexible, we're using percentage as well instead of fixed measure*/
   /* padding-bottom: 60%; */
   background-color: #fdf2e9;
   /* height: 60%; */
   padding-bottom: 60%; /*This is the same as setting up the height for 60%, but, somehow, setting the height this doesn't work out. And this is 60% of the 
   parent's width*/
-  z-index: -2;/*A camada que foi criada vai ficar abaixo de qualquer outra q tiver o z index default*/
+  z-index: -2; /*A camada que foi criada vai ficar abaixo de qualquer outra q tiver o z index default*/
 }
-.step-img-box::after{
+.step-img-box::after {
   width: 45%;
   padding-bottom: 45%;
   z-index: -1;
@@ -340,163 +362,161 @@ strong{
 .section-meals {
   padding: 9.6rem 0;
 }
-.meal{
+.meal {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 1.1rem ;
+  border-radius: 1.1rem;
   overflow: hidden; /*Overflow everything that is in front of the element meal, which occupies all space of the component meal*/
   transition: all 0.3s; /*The transition for the bolder or any other effect over the class meal*/
 }
-.meal-tags{
+.meal-tags {
   margin-bottom: 1.2rem;
   display: flex;
   gap: 4px;
 }
-.meal:hover{
+.meal:hover {
   transform: translateY(-1.2rem);
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, o, 0.6) ;
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, o, 0.6);
 }
-.meal-content{
+.meal-content {
   padding: 3.2rem 4.8rem 4.8rem 4.8rem;
 }
-.tag{
+.tag {
   display: inline-block;
   padding: 4px 8px;
   font-size: 1.2rem;
   text-transform: uppercase;
   color: #333;
-  border-radius:100px ;
+  border-radius: 100px;
   font-weight: 600;
 }
-.tag--vegetarian{
+.tag--vegetarian {
   background-color: #51cf66;
 }
-.tag--vegan{
+.tag--vegan {
   background-color: #94d82d;
 }
-.tag--paleo{
+.tag--paleo {
   background-color: #ffd43b;
 }
-.meal-title{
+.meal-title {
   font-size: 2.4rem;
   color: #333;
   font-weight: 600;
   margin-bottom: 3.2rem;
 }
-.meal-attributes{
-  list-style: none; 
+.meal-attributes {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.meal-attribute{
+.meal-attribute {
   font-size: 1.8rem;
   display: flex;
   align-items: center;
   gap: 1.6rem;
 }
-.meal-icon{
+.meal-icon {
   height: 2.4rem;
   width: 2.4rem;
   color: #e67e22;
 }
-.meal-img{
+.meal-img {
   width: 100%;
 }
 /* **********************************
     Testimonials
     *********************************/
 
-.section-testimonials{
+.section-testimonials {
   background-color: #fdf2e9;
   display: grid;
   grid-template-columns: 55fr 45fr;
   align-items: center;
 }
-.testimonial-container{
+.testimonial-container {
   padding: 9.6rem;
-
 }
-.testimonials{ /*We are Recreating the grid cuzy the one was created before is not a good fit for the testimonials but for sbigger comonents*/
+.testimonials {
+  /*We are Recreating the grid cuzy the one was created before is not a good fit for the testimonials but for sbigger comonents*/
   display: grid;
   grid-template-columns: 1fr 1fr; /*We can think of it as a term of percentage too, the first will have 55% and the second 45, but never use percentage here*/
   row-gap: 4.8rem;
   column-gap: 8rem;
   /* We're creating the grid here manually cuzy the grid default we created there were padding in there, and we don't want this here */
-
 }
-.testimonial-img{
+.testimonial-img {
   width: 6.4rem;
   border-radius: 50%;
   margin-bottom: 1.2rem;
 }
-.testimonial-text{
+.testimonial-text {
   font-size: 1.8rem;
   line-height: 1.8;
   margin-bottom: 1.6rem;
 }
-.testimonial-name{
+.testimonial-name {
   font-size: 1.6rem;
   color: #6f6f6f;
 }
-.gallery{
+.gallery {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
   padding: 1.6rem;
 }
-.gallery-item{
+.gallery-item {
   overflow: hidden;
   /* We are doing this because when we pass the cursor over the img and it scale, it takes more than the own space of each image and enter in the space of the other img, the image overflow the gallery-item  so, we put in the father overflow:hiden, that means the space that would be taken for the image will be hidden and won't be taken, so, we fix like this. */
 }
-.gallery-item img{
+.gallery-item img {
   display: block; /*Images are inline, when we put a lot of images ofe bellow the other in the html it create a space, in order to solve this, turn the img to block*/
-  width: 100%;/*In order to the img take only 100% of the entire width remaining*/
+  width: 100%; /*In order to the img take only 100% of the entire width remaining*/
   transition: all 0.4s;
 }
-.gallery-item img:hover{
+.gallery-item img:hover {
   transform: scale(1.1);
-
 }
 /* **********************************
     Pricing
     *********************************/
-.section-pricing{
+.section-pricing {
   padding: 9.6rem 0;
 }
-.pricing-plan{
+.pricing-plan {
   border-radius: 1.1rem;
   width: 75%; /*The width was taking all the space that was set by the grid in the parent container, but, we want the width a bit narrow, smaller, then, we do this.*/
 }
-.pricing-plan--starter{
+.pricing-plan--starter {
   justify-self: end; /*We created another class in order to align this item horizontally to the end in order to get closer to the other element, that's why we created another class, only for this element get the style.*/
   border: 2px solid #fdf2e9;
   padding: 4.6rem;
   /* Pricing-plan is the father of pricing-plan--end and pricing-plan--started. How we wanna put the focus in the pricing-plan--end, we put there a background-color and here only a border, how we've put a border here, it's automatically added a padding, so, here we use the padding only 4.6 but in the other element, pricing-plan--end we use 4.8, cuzy the border here is 2 px, here the padding will have 2 px less. */
 }
-.pricing-plan--end{
+.pricing-plan--end {
   background-color: #fdf2e9;
   padding: 4.8rem;
   position: relative;
-  overflow: hidden;/*In order to cut the element after we created bellow, everything that is inside pricing--end and pass this container is cutted of*/
+  overflow: hidden; /*In order to cut the element after we created bellow, everything that is inside pricing--end and pass this container is cutted of*/
 }
-.pricing-plan--end::after{
+.pricing-plan--end::after {
   content: "Best value ";
   position: absolute;
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 700;
   top: 6%;
-  right: -18%;/*We had some attempts in inspect in order to find these numbers, started with 0 each in order to grab in the top in the right*/
+  right: -18%; /*We had some attempts in inspect in order to find these numbers, started with 0 each in order to grab in the top in the right*/
   background-color: #ffd43b;
   color: #333;
   padding: 8px 8rem;
   transform: rotate(45deg);
 }
-.plan-header{
+.plan-header {
   text-align: center;
   margin-bottom: 4.8rem;
 }
-.plan-name{
+.plan-name {
   color: #cf711f;
   font-weight: 600;
   font-size: 2.2rem;
@@ -504,52 +524,196 @@ strong{
   letter-spacing: 0.25;
   margin-bottom: 3.2rem;
 }
-.plan-price{
+.plan-price {
   font-size: 6.2rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 1.6rem;
 }
-.plan-price span{
+.plan-price span {
   font-size: 3rem;
   font-weight: 500;
   margin-right: 0.8rem;
 }
-.plan-text{
+.plan-text {
   font-size: 1.6rem;
   line-height: 1.6;
 }
-.plan-signup{
+.plan-signup {
   text-align: center;
   margin-top: 4.8rem;
 }
-.plan-details{
+.plan-details {
   font-size: 1.8rem;
   text-align: center;
   line-height: 1.6rem;
 }
 
-.feature-icon{
+.feature-icon {
   color: #e67e22;
-  height:  3.2rem;
+  height: 3.2rem;
   width: 3.2rem;
   margin-bottom: 3.2rem;
   background-color: #fdf2e9;
   padding: 1.6rem;
   border-radius: 50%;
-} 
-.feature-title{
+}
+.feature-title {
   font-size: 2.4rem;
   color: #333;
   font-weight: 700;
   margin-bottom: 1.6rem;
 }
-.feature-text{
+.feature-text {
   font-size: 1.8;
   line-height: 1.8;
 }
+.section-pricing {
+  padding: 9.6rem 0;
+}
+/* **********************************
+    CTA
+    *********************************/
+.section-cta{
+  /* padding: 9.6rem 0 12.8rem 0; */
+  padding: 4.8rem 0 12.6rem;
+  /* top horizontally bottom */
+    }
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  /* background-color: #e67e22;  */
+  border-radius: 11px;
+  background-image: linear-gradient(to right bottom,
+  #eb984e,
+  #e67e22
+  )
+}
+.cta-text-box{
+  color: #2e1907;
+  padding: 4.8rem 6.8rem 6.4rem 6.4rem;
+}
+.cta-text{
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+.cta .heading-secondary{
+  /* color: #2e1907; */
+  color: inherit;/*It's not necessary to define the color again, cuzy the father which is cta-text-box already has the same colo, so, we just have to inherit that*/
+  margin-bottom: 3.2rem;
+}
+.cta-img-box{
+  background-image: linear-gradient(to right bottom,
+  rgba(235,151,78,0.35),
+  rgba(230,125,34,0.34)
+  ),
+   url(../img/eating.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
 
-/* Responsive layouts: max-width is used in order to have a flexive layout, for example, we create a element with max-width:1000px, it will have at maximum 1000px, but, as soon as we decrease the screen, the width reduce, because has the maximum, whereas, it can be reduced 
+.cta-form{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+.cta-form label{
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+.cta-form input,
+.cta-form select{
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit ;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.cta-form input::placeholder{
+  color: #aaa;
+
+}
+
+.cta *:focus{
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(253,242,233,0.3);
+}
+/* **********************************
+    Footer
+    *********************************/
+.footer{
+  padding: 12.6rem 0;
+  border-top: 1px solid #eee;
+}
+.grid-footer{
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+.footer-logo{
+  display: block;
+  margin-bottom: 3.2rem;
+}
+.social-icon{
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.footer-heading{
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 3.2rem;
+}
+.footer-nav{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.footer-link:link,
+.footer-link:visited{
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+.footer-link:hover,
+.footer-link:active{
+  color: #555;
+}
+.social-link {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+.copyright{
+  font-size: 1.4rem;
+  color: #767676;
+  line-height: 1.6;
+  margin-top: auto;
+}
+.logo-col{
+  display: flex;
+  flex-direction: column;
+
+}
+.contacts{
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.adress{
+  margin-bottom: 2.4rem;
+}
+/* 
+Responsive layouts: max-width is used in order to have a flexive layout, for example, we create a element with max-width:1000px, it will have at maximum 1000px, but, as soon as we decrease the screen, the width reduce, because has the maximum, whereas, it can be reduced 
 
 REM: If we dont define the font-size, 1 REM is always equal : 16px, but inside the html, if we define the font-size equal : 10px or 62.5%, 1 rem will be equal 10px
 
@@ -593,5 +757,14 @@ center one element with position: position: absolute;
   we can use too: transform :scale. Always the transition must come in the original element, in order to control how we want that the transition be
   set only width with square image, the heigh is figured out automatically
 
-  grid-template-columns: 55fr 45fr; /*We can think of it as a term of percentage too, the first will have 55% and the second 45, but never use percentage here*/
+  grid-template-columns: 55fr 45fr; /*We can think of it as a term of percentage too, the first will have 55% and the second 45, but never use percentage here
+  
+   Mix all colors together: background-image: linear-gradient(to right bottom,#eb984e,#e67e22);
 
+   Always use .. points before pass the path when use background-img:  background-image: url(../img/eating.jpg);
+
+   focus: We use *:focus in order to change the outline blue ehich happens when pass the mouse over the button, or something like this, by default is a line blue, but we can change that. The better way to do this is like we've done before.
+   Pseudoclass link: When we use that, only works for links, if use in another element doesn't apply
+
+   Flex and margin auto: if there's 3 elements inside a container, and they are close to each other, let's think of the last one, if we put a margin-top in there to auto, it will be push to the very end of the container
+  */
