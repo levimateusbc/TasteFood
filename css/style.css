@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-*:focus{
+*:focus {
   outline: none;
   /* outline: 4px dotted #e67e22;
   outline-offset: 8px; */
@@ -17,6 +17,22 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
+}
+/* *******************************************/
+/* Mobile************************/
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
 }
 /* *******************************************/
 /* General reuasable components************************/
@@ -65,13 +81,13 @@ body {
   border: none;
   cursor: pointer;
 }
-.btn--form{
+.btn--form {
   background-color: #45260a;
   color: #fdf2e9;
   align-self: end;
   padding: 1.2rem;
 }
-.btn--form:hover{
+.btn--form:hover {
   background-color: #fff;
   color: #555;
 }
@@ -128,8 +144,8 @@ instead of putting margin in the bottom of grid and removing this for the last c
 .grid--4--cols {
   grid-template-columns: repeat(4, 1fr);
 }
-.grid--5--cols{
-  grid-template-columns: repeat(5,1fr);
+.grid--5--cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 .grid--align-v {
   align-items: center;
@@ -195,7 +211,7 @@ strong {
 }
 .main-nav-list {
   display: flex;
-  gap: 3.2rem;
+  gap: 4.8rem;
   list-style: none;
   align-items: center;
 }
@@ -574,118 +590,115 @@ strong {
 /* **********************************
     CTA
     *********************************/
-.section-cta{
+.section-cta {
   /* padding: 9.6rem 0 12.8rem 0; */
   padding: 4.8rem 0 12.6rem;
   /* top horizontally bottom */
-    }
+}
 .cta {
   display: grid;
   grid-template-columns: 2fr 1fr;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   /* background-color: #e67e22;  */
   border-radius: 11px;
-  background-image: linear-gradient(to right bottom,
-  #eb984e,
-  #e67e22
-  )
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
 }
-.cta-text-box{
+.cta-text-box {
   color: #2e1907;
   padding: 4.8rem 6.8rem 6.4rem 6.4rem;
 }
-.cta-text{
+.cta-text {
   font-size: 1.8rem;
   line-height: 1.8;
   margin-bottom: 4.8rem;
 }
-.cta .heading-secondary{
+.cta .heading-secondary {
   /* color: #2e1907; */
-  color: inherit;/*It's not necessary to define the color again, cuzy the father which is cta-text-box already has the same colo, so, we just have to inherit that*/
+  color: inherit; /*It's not necessary to define the color again, cuzy the father which is cta-text-box already has the same colo, so, we just have to inherit that*/
   margin-bottom: 3.2rem;
 }
-.cta-img-box{
-  background-image: linear-gradient(to right bottom,
-  rgba(235,151,78,0.35),
-  rgba(230,125,34,0.34)
-  ),
-   url(../img/eating.jpg);
+.cta-img-box {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.35),
+      rgba(230, 125, 34, 0.34)
+    ),
+    url(../img/eating.jpg);
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 
-.cta-form{
+.cta-form {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 3.2rem;
   row-gap: 2.4rem;
 }
-.cta-form label{
+.cta-form label {
   display: block;
   font-size: 1.6rem;
   font-weight: 500;
   margin-bottom: 1.2rem;
 }
 .cta-form input,
-.cta-form select{
+.cta-form select {
   width: 100%;
   padding: 1.2rem;
   font-size: 1.8rem;
-  font-family: inherit ;
+  font-family: inherit;
   color: inherit;
   border: none;
   background-color: #fdf2e9;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-.cta-form input::placeholder{
+.cta-form input::placeholder {
   color: #aaa;
-
 }
 
-.cta *:focus{
+.cta *:focus {
   outline: none;
-  box-shadow: 0 0 0 5px rgba(253,242,233,0.3);
+  box-shadow: 0 0 0 5px rgba(253, 242, 233, 0.3);
 }
 /* **********************************
     Footer
     *********************************/
-.footer{
+.footer {
   padding: 12.6rem 0;
   border-top: 1px solid #eee;
 }
-.grid-footer{
+.grid-footer {
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
 }
-.footer-logo{
+.footer-logo {
   display: block;
   margin-bottom: 3.2rem;
 }
-.social-icon{
+.social-icon {
   height: 2.4rem;
   width: 2.4rem;
 }
-.footer-heading{
+.footer-heading {
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 3.2rem;
 }
-.footer-nav{
+.footer-nav {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
 }
 .footer-link:link,
-.footer-link:visited{
+.footer-link:visited {
   text-decoration: none;
   font-size: 1.6rem;
   color: #767676;
   transition: all 0.3s;
 }
 .footer-link:hover,
-.footer-link:active{
+.footer-link:active {
   color: #555;
 }
 .social-link {
@@ -693,23 +706,22 @@ strong {
   display: flex;
   gap: 2.4rem;
 }
-.copyright{
+.copyright {
   font-size: 1.4rem;
   color: #767676;
   line-height: 1.6;
   margin-top: auto;
 }
-.logo-col{
+.logo-col {
   display: flex;
   flex-direction: column;
-
 }
-.contacts{
+.contacts {
   font-style: normal;
   font-size: 1.6rem;
   line-height: 1.6;
 }
-.adress{
+.adress {
   margin-bottom: 2.4rem;
 }
 /* 
@@ -767,4 +779,8 @@ center one element with position: position: absolute;
    Pseudoclass link: When we use that, only works for links, if use in another element doesn't apply
 
    Flex and margin auto: if there's 3 elements inside a container, and they are close to each other, let's think of the last one, if we put a margin-top in there to auto, it will be push to the very end of the container
+
+   background: none; it removes the background color 
+
+   .icon-mobile-nav[name = "close-outline"]{ We are selecting the class  icon-mobile-nav that we put in a icon and we are taking the one which has the name close-outline }
   */
