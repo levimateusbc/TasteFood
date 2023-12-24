@@ -11,12 +11,17 @@
 }
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
+  /* Sometimes to a overflow works is necessary to apply it in the html and the body */
+  scroll-behavior: smooth; /*It will turn the behavior of the sroll smooth, but it doesn't work for devices of apple*/
 }
 body {
   font-family: "Rubik", sans-serif;
   line-height: 1;
   font-weight: 400;
   color: #555;
+  /* Only works if there's nothing absolutely positioned in relation to the body, we have to set the parent to position relative */
+  overflow-x: hidden;
 }
 /* *******************************************/
 /* Mobile************************/
@@ -74,7 +79,7 @@ body {
   display: inline-block;
   text-decoration: none;
   font-size: 2rem;
-  padding: 1.6rem 3.2em;
+  padding: 1.6rem 3.2rem;
   border-radius: 9px;
   transition: all 0.3s;
   font-weight: 600;
@@ -195,6 +200,7 @@ strong {
   height: 3rem;
   color: #e67e22;
 }
+
 /* *******************************************/
 /* HEADER*************************************/
 /* *******************************************/
@@ -208,6 +214,8 @@ strong {
   align-items: center;
   padding: 0 4.8rem; /*We use padding cuzy the space will come from inside the element and won't cut the background color, this is for give space in the sides left and right*/
   height: 9.6rem;
+  position: relative;
+  /* In media query we used a position absolute in the header-nav", and header is its father, so, here we set this to relative, to header-nav" be stuck in the header */
 }
 .main-nav-list {
   display: flex;
@@ -581,7 +589,7 @@ strong {
   margin-bottom: 1.6rem;
 }
 .feature-text {
-  font-size: 1.8;
+  font-size: 1.8rem;
   line-height: 1.8;
 }
 .section-pricing {
@@ -783,4 +791,7 @@ center one element with position: position: absolute;
    background: none; it removes the background color 
 
    .icon-mobile-nav[name = "close-outline"]{ We are selecting the class  icon-mobile-nav that we put in a icon and we are taking the one which has the name close-outline }
-  */
+
+     /* Sometimes to a overflow works is necessary to apply it in the html and the body */
+
+  

@@ -14,7 +14,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* for landscape tablets, 1200px maximum */
+/* for landscape tablets, bellow 1200px  */
 @media (max-width: 75em) {
   html {
     /* Let's use the font size 1 rem = 9px */
@@ -95,23 +95,44 @@
   }
   .btn-mobile-nav {
     display: block;
+    z-index: 9999;
   }
   .header-nav {
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    /* All we done with the position,top,left,width,height was put the navigation over the section, as soon as the user hit this, it will appear over the elements */
+    transform: translateX(100%);
     background-color: rgba(255, 255, 255, 0.97);
     display: flex;
     justify-content: center;
     align-items: center;
     /* display: none; Display none doesn't allows transition */
+    transition: all 0.5s;
+    /* Steps to hide the navigation
+     first:Hide it visually */
     opacity: 0;
+    /* second,Make it unaccessible to mouse and keyboard, cuzy we hit tab our cursor will go to the links, cuzy they are still there, only witth the opacity 0
+     */
+    pointer-events: none;
+    /* Hide it from screen readers */
+    visibility: hidden;
   }
   .nav-open .header-nav {
     opacity: 1;
     /* When nav-open exist, the header-nav will receive the opacity, if doesn't exist, wpn't be back the opacity, we will manage this with JavaScript */
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+
+  }
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
   }
   .main-nav-list {
     flex-direction: column;
@@ -122,5 +143,114 @@
     font-size: 3rem;
   }
 }
+/* 
 
-/* This is very importante, reduce all letters to the site become more responsible again */
+*/
+/* bellow 704px, smaller screens */
+@media (max-width:44em){
+  .grid--3--cols,
+  .grid--4--cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .diets{
+    text-align: center;
+    grid-column: 1/-1;
+   justify-self: center;
+  }
+  .heading-secondary{
+    margin-bottom: 4.8rem;
+  }
+  .pricing-plan{
+    width: 100%;
+  }
+  .grid-footer {
+    grid-template-columns:  repeat(6, 1fr);
+  }
+  .logo-col,
+  .adress-col{
+    /* There will be 6 column, 2 elements, each element will span 3 column, with the 2, filling up all 6 columns */
+    grid-column: span 3;
+  }
+  .nav-col{
+    grid-row: 1;
+    grid-column: span 2;/*each column of the 3 here will span 2 column, like this, filling up all 6 columns with the 3 contents of nav-col*/
+    margin-bottom: 3.2rem;
+  }
+}
+/* 544px and bellow this, for phones */
+@media (max-width:34em ){
+  .grid--2--cols,
+  .grid--3--cols,
+  .grid--4--cols {
+    grid-template-columns: 1fr;
+  }
+  .grid{
+    row-gap: 4.8rem;
+  }
+  .btn:link,
+  .btn:visited,
+  .btn{
+    padding: 2.4rem 1.6rem;
+  } 
+  .section-hero{
+    padding: 2.4rem 0 6.4rem 0;
+  }
+  .hero{
+    padding: 0 3.2rem;
+  }
+  .hero-img{
+    width: 80%;
+  }
+  .logos img{
+    height: 1.2rem;
+  }
+  .step-img-box:nth-child(2){/*This second child has nothing to do with the second element of the type step-img-box, but the second element of the parent of step-img-box, in which step-img-box is the second child, that's why we chose the nth-child(2), cuzy step-img-box is the second son of its parent */
+    grid-row: 1;
+  }
+  .step-img-box:nth-child(6){
+    grid-row: 5;
+  }
+  .step-img-box{
+    transform: translateY(2.4.rem);
+    /* We are doing this to the images move a little bit to down closer to each text */
+  }
+  .testimonials{
+    grid-template-columns: 1fr;
+  }
+  .gallery{
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.2rem;
+  }
+  .cta{
+    grid-template-columns: 1fr;
+  }
+  .cta-img-box{
+    height: 32rem;
+    grid-row: 1;
+  }
+}
+/* This is very importante, reduce all letters to the site become more responsible again
+Making the animation of the navigaton, use transform: translateX(100%) when the button of nav is not hitten, and the turn it to 0 when the button is hitten, it will create a smooth animation.
+ALways that use a position absolute in one element, is important to set the parent to position relative, to it becames relative to the parent and not to the body
+
+Center in grid: If we want to center one element, and the space is not enough to center, use grid-column: 1/-1;, it will take the start of the columns untill the end, and then, use the property of grid align-self or justify-self to centralize this
+
+grid-row: 1; All elements here will be in the first row
+
+with a grid for example with 3 collumns and 2 rows, but only 5 elements, we do like this to fix that:
+  .grid-footer {
+    grid-template-columns:  repeat(6, 1fr);
+  }
+  .adress-col{
+    grid-column: span 3;
+  }
+  .nav-col{
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+  adress-col contain 2 columns and nav-columns 3
+  step-img-box:nth-child(2)
+
+  when we define a image with background-img instead of writting in css, may be necessary to set the height, if there's no space to this image and it's not side by side with some content, it will disappear, being necessary to set a height
+*/
