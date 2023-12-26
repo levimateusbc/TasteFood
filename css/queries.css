@@ -119,6 +119,8 @@
     pointer-events: none;
     /* Hide it from screen readers */
     visibility: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);/* The same effect as above, but for some versions of apple and safari */
   }
   .nav-open .header-nav {
     opacity: 1;
@@ -229,6 +231,59 @@
     grid-row: 1;
   }
 }
+
+/* Fixing gap in the safari version that doesn't support gap for flex-box */
+
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+.no-flexbox-gap .list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .list-icon:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .delivered-faces {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .meal-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .meal-icon {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .footer-row div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .social-links li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .footer-nav li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}
+
+
 /* This is very importante, reduce all letters to the site become more responsible again
 Making the animation of the navigaton, use transform: translateX(100%) when the button of nav is not hitten, and the turn it to 0 when the button is hitten, it will create a smooth animation.
 ALways that use a position absolute in one element, is important to set the parent to position relative, to it becames relative to the parent and not to the body
@@ -253,4 +308,15 @@ with a grid for example with 3 collumns and 2 rows, but only 5 elements, we do l
   step-img-box:nth-child(2)
 
   when we define a image with background-img instead of writting in css, may be necessary to set the height, if there's no space to this image and it's not side by side with some content, it will disappear, being necessary to set a height
+
+      backdrop-filter: blur(10px); Embaça um pouco a tela de fundo 
+
+  Alguns navegadores como safari, apple não suporta o flex ou grid ou algumas propriedades, estar atento quanto a isso
+
+  -webkit-backdrop-filter: blur(10px);
+   The same effect as above, but for some versions of apple and safari to work we have to use this like that 
+
+   https://caniuse.com/ to se if the browsers support the tecnologies
+
+   Sometimes like some time ago, safari didin't support gap for flex-box, currently it support, but when it doesn't support we have to create our own by JavaScript
 */

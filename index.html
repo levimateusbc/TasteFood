@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeliveryFood or PalaParadise</title>
+    <meta name="description" content="PalaParadise where you eat health food 365 days a year!">
+    <!-- Meta description is a description to the engine searchers -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"><!-- Flavicon for devices -->
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" /><!-- Flavicon for apple and ios -->
+    <!-- manifest.webmanifest this was written for the flavicon in androids -->
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <title>PalaParadise - Never cook again</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,9 +19,14 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/queries.css"/>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script> <!-- Smooth navigation to apple -->
   </head>
   <body>
-    <header class="header  ">
+    
+    <header class="header sticky ">
       <a href="#">
         <img class="header-logo" src="img/omnifood-logo.png" alt="" />
       </a>
@@ -87,6 +99,12 @@
             </div>
           </div>
           <div class="hero-img-box">
+            <picture>
+              <source srcset="img/meals/hero.webp">
+              <source srcset="img/meals"/>
+
+            </picture>
+
             <img
               src="img/hero.png"
               class="hero-img"
@@ -566,4 +584,21 @@ This href for tel:99250477 after pressing the text that is inside the tag a, wil
 This make the responsive work in phone and tablet in the real website, without this, the effects os media query doesn't apply
 
 Usually we use id's to scroll over a page, we use the # in the tag a and then the the name id, after clicking that, will be taken there
+
+
+lighthouse on inspect to make improvements in teh website
+
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"> Flavicon for devices 
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png"  Flavicon for apple and ios 
+  manifest.webmanifest this was written for the flavicon in androids 
+  <link rel="manifest" href="manifest.webmanifest" />
+  are differents sizes, for androis 192 and 512 for apple 180 and for browser must be  62
+
+  It's good for the images to have half of the size of a big image when resize them with css
+
+  It's good always check out in can i use if some tecnologie can be use and some browsers how safari. For exp the kind of image webp, we have to use a trick to this work out 
+
+
+  https://www.netlify.com/ to make deploys
+  deploy the site using netlify we can use in the form the atribute netlify = "" it we can get the data that are submited and we see this in the site of netlify, learn more section 9, class 11 in 
 -->
