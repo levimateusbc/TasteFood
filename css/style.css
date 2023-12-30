@@ -215,7 +215,8 @@ strong {
   padding: 0 4.8rem; /*We use padding cuzy the space will come from inside the element and won't cut the background color, this is for give space in the sides left and right*/
   height: 9.6rem;
   position: relative;
-  /* In media query we used a position absolute in the header-nav", and header is its father, so, here we set this to relative, to header-nav" be stuck in the header */
+  /* In media query we used a position absolute in the 
+  ", and header is its father, so, here we set this to relative, to header-nav" be stuck in the header */
 }
 .main-nav-list {
   display: flex;

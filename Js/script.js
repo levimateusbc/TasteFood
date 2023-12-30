@@ -1,11 +1,12 @@
-const navBtn = document.querySelector('.btn-mobile-nav') 
+const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headernv = document.querySelector(".header")
-navBtn.addEventListener('click',function(){
+btnNavEl.addEventListener('click',function(){
     headernv.classList.toggle("nav-open")
 })
 // Smooth scrolling animation
 
 const allLinks = document.querySelectorAll("a:link");
+const headerEl = document.querySelector(".header");
 
 allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
@@ -26,7 +27,7 @@ allLinks.forEach(function (link) {
     }
 
     // Close mobile naviagtion
-    if (link.classList.contains("main-nav-link"))
+    if (link.classList.contains("nav-link"))
       headerEl.classList.toggle("nav-open");
   });
 });
